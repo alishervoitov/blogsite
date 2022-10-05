@@ -1,0 +1,89 @@
+*{
+margin:0;
+padding:0;
+}
+.container{
+width:85%;
+margin:0 auto;
+}
+.header{
+margin-top:50px;
+width:100%;
+text-align:center;
+color:red;
+font-size:32px;
+}
+.author{
+margin-top:50px;
+width:100%
+display:flex;
+
+
+
+}
+.author .card-he{
+margin-top:5px;
+border:2px solid #f6f6f6;
+width:32%;
+margin-left:2%
+display:flex;
+display:inline-block;
+text-align:center;
+padding-top:20px;
+height:50px;
+font-size;24px;
+
+}
+.author .card-he:hover{
+
+background-color: #f6f6f6;
+
+
+}
+.author .card-he a{
+color:green;
+text-decoration:none;
+
+}
+.box{
+width:100%;
+margin-top:50px;
+}
+.box .card {
+margin-top:20px;
+border:3px solid #f2f2f2;
+display:inline-block;
+text-align:center;
+width:30%;
+height:500px;
+margin-left:2%;
+}
+.box .card img{
+width:100%;
+height:300px;
+object-fit:cover;
+
+}
+.box .card .card-header{
+width:100%;
+height:160px;
+}
+.box .card a{
+text-decoration:none;
+color:green;
+margin-top:2px;
+font-size:32px;
+font-family:san-serif;
+margin-left:10px;
+
+}
+.box .card p{
+text-decoration:none;
+color:blue;
+margin-top:10px;
+font-size:18x;
+cursor:pointer;
+font-family:san-serif;
+margin-left:10px;
+
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+<div class="container">
+    <div class="header">Mualliflar</div>
+
+
+<div class="author">
+    {% for author in authors%}
+    <div class="card-he">
+
+        <a href="{% url 'author' author.id %}"> <h3>{{author.full_name}}</h3></a>
+
+
+    </div>
+    {% endfor %}
+</div>
+<div class="header">Yangiliklar</div>
+<div class="box">
+    {% for article in articles%}
+    <div class="card">
+        <img src="{{ article.get_image }}" alt="">
+      <div class="card-header">
+            <a href="{% url 'article_detail' article.id %}">{{article.name}}</a>
+
+        <p>{{article.content}}</p>
+
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+</body>
+</html>

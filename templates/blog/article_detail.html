@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{article.name}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+        user_full_name = '{{request.user.first_name}}  {{request.user.last_name}}'
+    </script>
+</head>
+<body>
+<h2>{{ article.name}}</h2>
+<p>{{article.content}}</p>
+<h4 >{{ article.author}}</h4>
+<b><i onclick="setreaction({{ article.id }},'like')" class="bi bi-hand-thumbs-up-fill"></i><i id="like">{{article.likes}}</i></b>
+<b><i onclick="setreaction({{ article.id }},'dislike')" class="bi bi-hand-thumbs-down"></i><i id="dislike">{{article.dislikes}}</i></b>
+<div>
+    {% csrf_token %}
+    <input id="comment" name="comment">
+    <button onclick="send_comment({{ article.id }})">Send</button>
+</div>
+<ul id="comments">
+    {% for comment in article.comments.all %}
+    <li>
+        <p>{{ comment.comment }}</p>
+        <i>{{ comment.person }}</i>
+    </li>
+    {% endfor %}
+</ul>
+<script src="{% static 'actions.js' %}"></script>
+</body>
+</html>
